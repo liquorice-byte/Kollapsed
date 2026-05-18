@@ -35,7 +35,7 @@ javafx {
 }
 
 dependencies {
-    implementation("org.controlsfx:controlsfx:11.2.1")
+    // implementation("org.controlsfx:controlsfx:11.2.1")
     implementation("ch.qos.logback:logback-classic:1.5.32")
     implementation("io.github.mkpaz:atlantafx-base:2.1.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
