@@ -10,7 +10,7 @@ A random toolkit that integrates into your daily life.
 - [ ] ...
 
 ## Build
-Just build it in your way. Recommended IDE: IntelliJ IDEA
+~~I don't know~~ Just build it in your way. Recommended IDE: IntelliJ IDEA
 
 ### IDEA Run Configuration
 
