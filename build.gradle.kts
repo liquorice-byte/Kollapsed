@@ -5,6 +5,7 @@ plugins {
     id("org.javamodularity.moduleplugin") version "1.8.15"
     id("org.openjfx.javafxplugin") version "0.0.13"
     id("org.beryx.jlink") version "2.25.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.4.0-RC"
 }
 
 group = "it.liquorice"
@@ -23,7 +24,7 @@ tasks.withType<JavaCompile> {
 
 application {
     mainModule.set("it.liquorice.kollapsed")
-    mainClass.set("it.liquorice.kollapsed.HelloApplication")
+    mainClass.set("it.liquorice.kollapsed.KollapsedApplication")
 }
 kotlin {
     jvmToolchain(21)
@@ -38,6 +39,9 @@ dependencies {
     // implementation("org.controlsfx:controlsfx:11.2.1")
     implementation("ch.qos.logback:logback-classic:1.5.32")
     implementation("io.github.mkpaz:atlantafx-base:2.1.0")
+    implementation("org.kordamp.ikonli:ikonli-javafx:12.4.0")
+    implementation("org.kordamp.ikonli:ikonli-fluentui-pack:12.4.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
