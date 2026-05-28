@@ -6,6 +6,7 @@ plugins {
     id("org.openjfx.javafxplugin") version "0.0.13"
     id("org.beryx.jlink") version "2.25.0"
     id("org.jetbrains.kotlin.plugin.serialization") version "2.4.0-RC"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "it.liquorice"
@@ -24,7 +25,7 @@ tasks.withType<JavaCompile> {
 
 application {
     mainModule.set("it.liquorice.kollapsed")
-    mainClass.set("it.liquorice.kollapsed.KollapsedApplication")
+    mainClass.set("it.liquorice.kollapsed.Launcher")
 }
 kotlin {
     jvmToolchain(21)
@@ -60,4 +61,10 @@ jlink {
 
 tasks.compileKotlin {
     destinationDirectory.set(tasks.compileJava.get().destinationDirectory)
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "it.liquorice.kollapsed.Launcher"
+    }
 }

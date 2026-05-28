@@ -4,6 +4,7 @@ import atlantafx.base.controls.Card
 import atlantafx.base.controls.CustomTextField
 import atlantafx.base.controls.Tile
 import atlantafx.base.theme.Styles
+import it.liquorice.kollapsed.utils.i18n.Translator
 import org.kordamp.ikonli.fluentui.FluentUiRegularMZ
 import org.kordamp.ikonli.javafx.FontIcon
 
@@ -14,12 +15,12 @@ class TodoCard: Card() {
         minHeight = 300.0
 
         val cardHeader = Tile(
-            "To-dos",
-            "Hmm...what am I going to do?"
+            Translator.translate("TODO_CARD_TITLE"),
+            Translator.translate("TODO_CARD_DESCRIPTION"),
         )
 
         val searchBar = CustomTextField()
-        searchBar.promptText = "Search..."
+        searchBar.promptText = Translator.translate("SEARCH_BAR_PROMPT")
         searchBar.left = FontIcon(FluentUiRegularMZ.SEARCH_20)
 
 
