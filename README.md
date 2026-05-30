@@ -2,7 +2,8 @@
 A random toolkit that integrates into your daily life.
 
 ## Features
-- [ ] To-do
+- [x] To-do
+- [x] To-do Progress
 - [ ] Pomodoro
 - [ ] Memo
 - [x] Config Support (Json)
