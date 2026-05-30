@@ -1,7 +1,7 @@
 package it.liquorice.kollapsed
 
 import atlantafx.base.controls.Card
-import atlantafx.base.theme.CupertinoLight
+import atlantafx.base.theme.PrimerLight
 import it.liquorice.kollapsed.components.TodoCard
 import javafx.application.Application
 import javafx.scene.Scene
@@ -13,7 +13,7 @@ class KollapsedApplication : Application() {
     private val logger = LoggerFactory.getLogger(KollapsedApplication::class.java)
     override fun start(stage: Stage) {
         logger.info("Starting application...")
-        setUserAgentStylesheet(CupertinoLight().userAgentStylesheet)
+        setUserAgentStylesheet(PrimerLight().userAgentStylesheet)
         logger.info("Current Stylesheet: {}", getUserAgentStylesheet())
 
         // layout
@@ -23,6 +23,9 @@ class KollapsedApplication : Application() {
         flowPane.hgap = 10.0
         flowPane.vgap = 10.0
         logger.info("hgap: ${flowPane.hgap}, vgap: ${flowPane.vgap}")
+
+        // 创建scene, 设置stage
+        val scene = Scene(flowPane, 1000.0, 800.0)
 
         // 创建卡片
         val todoCard = TodoCard()
@@ -40,8 +43,6 @@ class KollapsedApplication : Application() {
         // prefWrapLength
         // flowPane.prefWrapLength = 170.0
 
-        // 创建scene, 设置stage
-        val scene = Scene(flowPane, 1000.0, 800.0)
         stage.title = "Kollapsed"
         stage.scene = scene
         stage.show()

@@ -7,12 +7,20 @@ class Consts {
             append("/Kollapsed")
         }
 
-        val CONFIG_RELATIVE: String = "config.json"
+        const val CONFIG_RELATIVE: String = "config.json"
 
         val CONFIG_ABSOLUTE: String = buildString {
             append(STORAGE_DIR)
             append("/")
             append(CONFIG_RELATIVE)
+        }
+
+        const val TODO_RELATIVE: String = "todos.json"
+
+        val TODO_ABSOLUTE: String = buildString {
+            append(STORAGE_DIR)
+            append("/")
+            append(TODO_RELATIVE)
         }
     }
 }
