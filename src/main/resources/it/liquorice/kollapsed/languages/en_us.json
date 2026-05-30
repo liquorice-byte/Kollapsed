@@ -3,5 +3,7 @@
   "TODO_CARD_DESC": "Hmm...what am I going to do?",
   "SEARCH_BAR_PROMPT": "Search...",
   "ADD_TODO_DIALOG_TITLE": "Add Todo...",
-  "ADD_TODO_DIALOG_CONTENT": "Enter to-do content: "
+  "ADD_TODO_DIALOG_CONTENT": "Enter to-do content: ",
+  "PROGRESS_CARD_TITLE": "Task Progress",
+  "PROGRESS_CARD_DESC": "How much have you completed?"
 }

@@ -2,6 +2,7 @@ package it.liquorice.kollapsed
 
 import atlantafx.base.controls.Card
 import atlantafx.base.theme.PrimerLight
+import it.liquorice.kollapsed.components.ProgressCard
 import it.liquorice.kollapsed.components.TodoCard
 import javafx.application.Application
 import javafx.scene.Scene
@@ -10,14 +11,17 @@ import javafx.stage.Stage
 import org.slf4j.LoggerFactory
 
 class KollapsedApplication : Application() {
+    private var scene: Scene? = null
+    private val flowPane = FlowPane()
+    private val todoCard = TodoCard()
+    private val progressCard = ProgressCard()
+    private val pomodoroCard = Card()
+    private val memoCard = Card()
     private val logger = LoggerFactory.getLogger(KollapsedApplication::class.java)
     override fun start(stage: Stage) {
         logger.info("Starting application...")
         setUserAgentStylesheet(PrimerLight().userAgentStylesheet)
         logger.info("Current Stylesheet: {}", getUserAgentStylesheet())
-
-        // layout
-        val flowPane = FlowPane()
 
         // 设置间隔
         flowPane.hgap = 10.0
@@ -25,13 +29,7 @@ class KollapsedApplication : Application() {
         logger.info("hgap: ${flowPane.hgap}, vgap: ${flowPane.vgap}")
 
         // 创建scene, 设置stage
-        val scene = Scene(flowPane, 1000.0, 800.0)
-
-        // 创建卡片
-        val todoCard = TodoCard()
-        val progressCard = Card()
-        val pomodoroCard = Card()
-        val memoCard = Card()
+        scene = Scene(flowPane, 1000.0, 800.0)
 
         // 添加到flowPane
         flowPane.children.add(todoCard)
@@ -40,12 +38,17 @@ class KollapsedApplication : Application() {
         flowPane.children.add(memoCard)
         logger.info("flowPane children: {}", flowPane.children)
 
-        // prefWrapLength
-        // flowPane.prefWrapLength = 170.0
-
         stage.title = "Kollapsed"
         stage.scene = scene
         stage.show()
         logger.info("Application started, title: ${stage.title}, scene root: ${stage.scene.root}, width: ${stage.width}, height: ${stage.height}")
+    }
+
+    override fun stop() {
+        logger.info("Stopping application...")
+        logger.info("Stopping ProgressCard auto refresh...")
+        progressCard.stopAutoRefresh()
+        logger.info("ProgressCard auto refresh finished.")
+        logger.info("Application stopped.")
     }
 }
