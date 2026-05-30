@@ -56,7 +56,7 @@ class ProgressCard: Card() {
         }
     }
 
-    public fun stopAutoRefresh() {
+    fun stopAutoRefresh() {
         logger.info("Stopping auto refresh...")
         autoTimer?.cancel()
         autoTimer = null
