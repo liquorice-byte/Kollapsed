@@ -28,7 +28,7 @@ import org.kordamp.ikonli.fluentui.FluentUiRegularMZ
 import org.kordamp.ikonli.javafx.FontIcon
 import org.slf4j.LoggerFactory
 
-class TodoCard(): Card() {
+class TodoCard: Card() {
     private var cardHeader: Tile
     private var searchBar: CustomTextField
     private var todosBox: VBox
