@@ -12,6 +12,9 @@ module it.liquorice.kollapsed {
     requires kotlinx.serialization.core;
     requires kotlinx.serialization.json;
 
+    requires kotlinx.coroutines.core;
+    requires kotlinx.coroutines.javafx;
+
     opens it.liquorice.kollapsed to javafx.fxml;
     exports it.liquorice.kollapsed;
 }

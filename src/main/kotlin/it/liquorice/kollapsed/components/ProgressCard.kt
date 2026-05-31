@@ -21,14 +21,13 @@ class ProgressCard: Card() {
     private var autoTimer: Timer? = null
 
     private val logger = LoggerFactory.getLogger(ProgressCard::class.java)
+
     init {
         styleClass.add(Styles.INTERACTIVE)
 
         indicator = RingProgressIndicator(0.0, false)
         indicator.setMinSize(300.0, 300.0)
 
-        // autoTimer = Timer()
-        refresh()
         startAutoRefresh()
         header = Tile(
             Translator.translate("PROGRESS_CARD_TITLE"),
@@ -47,7 +46,7 @@ class ProgressCard: Card() {
     }
 
     private fun startAutoRefresh() {
-        if (autoTimer != null) return;
+        if (autoTimer != null) return
         logger.info("Starting auto refresh...")
         autoTimer = timer(name = "AutoRefresh", daemon = true, period = 1000L) {
             Platform.runLater {

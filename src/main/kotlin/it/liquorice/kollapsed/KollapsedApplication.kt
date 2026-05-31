@@ -2,6 +2,7 @@ package it.liquorice.kollapsed
 
 import atlantafx.base.controls.Card
 import atlantafx.base.theme.PrimerLight
+import it.liquorice.kollapsed.components.PomodoroCard
 import it.liquorice.kollapsed.components.ProgressCard
 import it.liquorice.kollapsed.components.TodoCard
 import javafx.application.Application
@@ -15,7 +16,7 @@ class KollapsedApplication : Application() {
     private val flowPane = FlowPane()
     private val todoCard = TodoCard()
     private val progressCard = ProgressCard()
-    private val pomodoroCard = Card()
+    private val pomodoroCard = PomodoroCard()
     private val memoCard = Card()
     private val logger = LoggerFactory.getLogger(KollapsedApplication::class.java)
     override fun start(stage: Stage) {
@@ -49,6 +50,9 @@ class KollapsedApplication : Application() {
         logger.info("Stopping ProgressCard auto refresh...")
         progressCard.stopAutoRefresh()
         logger.info("ProgressCard auto refresh finished.")
+        logger.info("Stopping PomodoroCard auto refresh...")
+        pomodoroCard.stopAutoRefresh()
+        logger.info("PomodoroCard auto refresh finished.")
         logger.info("Application stopped.")
     }
 }

@@ -5,5 +5,22 @@
   "ADD_TODO_DIALOG_TITLE": "Add Todo...",
   "ADD_TODO_DIALOG_CONTENT": "Enter to-do content: ",
   "PROGRESS_CARD_TITLE": "Task Progress",
-  "PROGRESS_CARD_DESC": "How much have you completed?"
+  "PROGRESS_CARD_DESC": "How much have you completed?",
+  "POMODORO_CARD_TITLE": "Pomodoro",
+  "POMODORO_CARD_DESC": "Be Focused!",
+  "POMODORO_START_BUTTON_TEXT": "Start Pomodoro",
+  "POMODORO_STOP_BUTTON_TEXT": "Interrupt Pomodoro",
+  "POMODORO_CYCLE": "Cycle",
+  "POMODORO_DIALOG_TITLE": "Start Pomodoro...",
+  "POMODORO_DIALOG_FOCUS": "Focus Duration (mins): ",
+  "POMODORO_DIALOG_SHORT_REST": "Short Rest Duration (mins): ",
+  "POMODORO_DIALOG_LONG_REST": "Long Rest Duration (mins): ",
+  "POMODORO_DIALOG_CYCLES": "Cycle(s): ",
+  "POMODORO_INVALID_INPUT": "Invalid inputs. Please set a reasonable time.",
+  "ELAPSED": "Elapsed",
+  "TOTAL": "Total",
+  "FOCUS": "Focus",
+  "SHORT_REST": "Short rest",
+  "LONG_REST": "Long rest",
+  "ERROR": "Error!"
 }

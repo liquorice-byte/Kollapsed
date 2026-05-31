@@ -44,7 +44,7 @@ class TodoCard: Card() {
 
         cardHeader = Tile(
             Translator.translate("TODO_CARD_TITLE"),
-            Translator.translate("TODO_CARD_DESCRIPTION"),
+            Translator.translate("TODO_CARD_DESC"),
         )
 
         searchBar = CustomTextField()
@@ -119,8 +119,7 @@ class TodoCard: Card() {
                 }
             }
 
-            deleteButton.styleClass.add(Styles.BUTTON_ICON)
-            deleteButton.styleClass.add(Styles.SMALL)
+            deleteButton.styleClass.add(Styles.BUTTON_CIRCLE)
             deleteButton.alignment = Pos.CENTER_RIGHT
             deleteButton.onAction = EventHandler {
                 logger.info("Deleting todo: ${todo.content}")
