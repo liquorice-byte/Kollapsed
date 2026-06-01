@@ -4,11 +4,12 @@ A random toolkit that integrates into your daily life.
 ## Features
 - [x] To-do
 - [x] To-do Progress
-- [ ] Pomodoro
-- [ ] Memo
+- [x] Pomodoro
+- [x] Memo
 - [x] Config Support (Json)
 - [ ] Config GUI
-- [ ] ...
+- [ ] Linking pomodoro to to-do
+- [ ] more...
 
 ## Build
 ~~I don't know~~ Just build it in your way. Recommended IDE: IntelliJ IDEA
