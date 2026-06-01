@@ -16,6 +16,8 @@ module it.liquorice.kollapsed {
     requires kotlinx.coroutines.core;
     requires kotlinx.coroutines.javafx;
 
+    requires com.jthemedetector;
+
     opens it.liquorice.kollapsed to javafx.fxml;
     exports it.liquorice.kollapsed;
 }

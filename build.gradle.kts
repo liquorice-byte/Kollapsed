@@ -47,6 +47,7 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.10.2")
+    implementation("org.openani.jsystemthemedetector:jSystemThemeDetector:3.9")
 }
 
 tasks.withType<Test> {

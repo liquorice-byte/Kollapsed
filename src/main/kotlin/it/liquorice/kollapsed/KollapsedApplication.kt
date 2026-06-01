@@ -1,12 +1,15 @@
 package it.liquorice.kollapsed
 
 import atlantafx.base.controls.Card
+import atlantafx.base.theme.PrimerDark
 import atlantafx.base.theme.PrimerLight
+import com.jthemedetecor.OsThemeDetector
 import it.liquorice.kollapsed.components.MemoCard
 import it.liquorice.kollapsed.components.PomodoroCard
 import it.liquorice.kollapsed.components.ProgressCard
 import it.liquorice.kollapsed.components.TodoCard
 import javafx.application.Application
+import javafx.application.Platform
 import javafx.scene.Scene
 import javafx.scene.image.Image
 import javafx.scene.layout.FlowPane
@@ -21,11 +24,41 @@ class KollapsedApplication : Application() {
     private val pomodoroCard = PomodoroCard()
     private val memoCard = MemoCard()
     private val logger = LoggerFactory.getLogger(KollapsedApplication::class.java)
+    private lateinit var _stage: Stage
     override fun start(stage: Stage) {
         logger.info("Starting application...")
-        // windows
-        stage.icons.add(Image(javaClass.getResourceAsStream("/it/liquorice/kollapsed/img/icon.png")))
-        setUserAgentStylesheet(PrimerLight().userAgentStylesheet)
+
+        _stage = stage
+
+        val detector = OsThemeDetector.getDetector()
+        if (detector.isDark) {
+            logger.info("Current theme: dark")
+            stage.icons.add(Image(javaClass.getResourceAsStream("/it/liquorice/kollapsed/img/icon.png")))
+            setUserAgentStylesheet(PrimerDark().userAgentStylesheet)
+        } else {
+            logger.info("Current theme: light")
+            stage.icons.add(Image(javaClass.getResourceAsStream("/it/liquorice/kollapsed/img/icon_dark.png")))
+            setUserAgentStylesheet(PrimerLight().userAgentStylesheet)
+        }
+
+        detector.registerListener { isDark ->
+            if (isDark) {
+                logger.info("OS switched to theme: dark, syncing...")
+                Platform.runLater {
+                    stage.icons.clear()
+                    stage.icons.add(Image(javaClass.getResourceAsStream("/it/liquorice/kollapsed/img/icon.png")))
+                }
+                setUserAgentStylesheet(PrimerDark().userAgentStylesheet)
+            } else {
+                logger.info("OS switched to theme: light, syncing...")
+                Platform.runLater {
+                    stage.icons.clear()
+                    stage.icons.add(Image(javaClass.getResourceAsStream("/it/liquorice/kollapsed/img/icon_dark.png")))
+                }
+                setUserAgentStylesheet(PrimerLight().userAgentStylesheet)
+            }
+        }
+
         logger.info("Current Stylesheet: {}", getUserAgentStylesheet())
 
         // 设置间隔

@@ -36,7 +36,8 @@ class Launcher {
             }
             val savingFile = File(dir, Consts.TODO_RELATIVE)
             if (!savingFile.exists()) {
-                logger.info("No \"todo\" archive file found. Initializing: {}", Consts.TODO_ABSOLUTE)
+                logger.info("No \"todo\" archive" +
+                        " file found. Initializing: {}", Consts.TODO_ABSOLUTE)
                 SavingManager.initializeSaving()
             }
         }
