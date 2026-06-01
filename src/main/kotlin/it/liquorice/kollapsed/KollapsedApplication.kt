@@ -2,25 +2,29 @@ package it.liquorice.kollapsed
 
 import atlantafx.base.controls.Card
 import atlantafx.base.theme.PrimerLight
+import it.liquorice.kollapsed.components.MemoCard
 import it.liquorice.kollapsed.components.PomodoroCard
 import it.liquorice.kollapsed.components.ProgressCard
 import it.liquorice.kollapsed.components.TodoCard
 import javafx.application.Application
 import javafx.scene.Scene
+import javafx.scene.image.Image
 import javafx.scene.layout.FlowPane
 import javafx.stage.Stage
 import org.slf4j.LoggerFactory
 
 class KollapsedApplication : Application() {
-    private var scene: Scene? = null
+    private lateinit var scene: Scene
     private val flowPane = FlowPane()
     private val todoCard = TodoCard()
     private val progressCard = ProgressCard()
     private val pomodoroCard = PomodoroCard()
-    private val memoCard = Card()
+    private val memoCard = MemoCard()
     private val logger = LoggerFactory.getLogger(KollapsedApplication::class.java)
     override fun start(stage: Stage) {
         logger.info("Starting application...")
+        // windows
+        stage.icons.add(Image(javaClass.getResourceAsStream("/it/liquorice/kollapsed/img/icon.png")))
         setUserAgentStylesheet(PrimerLight().userAgentStylesheet)
         logger.info("Current Stylesheet: {}", getUserAgentStylesheet())
 
@@ -30,7 +34,9 @@ class KollapsedApplication : Application() {
         logger.info("hgap: ${flowPane.hgap}, vgap: ${flowPane.vgap}")
 
         // 创建scene, 设置stage
-        scene = Scene(flowPane, 1000.0, 800.0)
+        scene = Scene(flowPane, 1200.0, 1000.0)
+
+        memoCard.minWidth = scene.width
 
         // 添加到flowPane
         flowPane.children.add(todoCard)

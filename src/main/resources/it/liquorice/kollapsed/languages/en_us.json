@@ -22,5 +22,7 @@
   "FOCUS": "Focus",
   "SHORT_REST": "Short rest",
   "LONG_REST": "Long rest",
+  "MEMO_CARD_TITLE": "Memo",
+  "MEMO_CARD_DESC": "Oh my memory...",
   "ERROR": "Error!"
 }

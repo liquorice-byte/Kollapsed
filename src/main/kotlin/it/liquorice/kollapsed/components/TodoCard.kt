@@ -39,7 +39,7 @@ class TodoCard: Card() {
         styleClass.add(Styles.INTERACTIVE)
         minWidth = 300.0
         // minHeight = scene.window.height / 4
-        maxWidth = 300.0
+        // maxWidth = 300.0
         // maxHeight = scene.window.height / 4
 
         cardHeader = Tile(

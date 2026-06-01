@@ -1,6 +1,7 @@
 module it.liquorice.kollapsed {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.web;
     requires kotlin.stdlib;
 
     requires atlantafx.base;
