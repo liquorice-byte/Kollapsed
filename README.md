@@ -1,4 +1,5 @@
 # Kollapsed
+## Discontinued: It is a try. Not a product. New Project: LiquorFocus, a new journey
 A random toolkit that integrates into your daily life.
 
 ## Features
@@ -7,7 +8,7 @@ A random toolkit that integrates into your daily life.
 - [x] Pomodoro
 - [x] Memo
 - [x] Config Support (Json)
-- [ ] Config GUI
+- [x] Config GUI
 - [ ] Linking pomodoro to to-do
 - [ ] more...
 
