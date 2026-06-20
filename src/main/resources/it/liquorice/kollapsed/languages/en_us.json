@@ -24,5 +24,9 @@
   "LONG_REST": "Long rest",
   "MEMO_CARD_TITLE": "Memo",
   "MEMO_CARD_DESC": "Oh my memory...",
-  "ERROR": "Error!"
+  "ERROR": "Error!",
+  "OK": "OK",
+  "SETTINGS": "Settings...",
+  "SETTINGS_GENERAL": "General",
+  "SETTINGS_GENERAL_LANGUAGE": "Language"
 }

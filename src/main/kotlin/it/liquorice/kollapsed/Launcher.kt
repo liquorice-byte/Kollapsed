@@ -13,6 +13,8 @@ class Launcher {
         private val logger = LoggerFactory.getLogger(Launcher::class.java)
         @JvmStatic
         fun main(args: Array<String>) {
+            System.setProperty("prism.forceGPU", "true")
+            System.setProperty("prism.verbose", "false")
             // val logger = LoggerFactory.getLogger(Launcher::class.java)
 
             checkAndCompleteFiles()

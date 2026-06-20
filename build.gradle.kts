@@ -3,10 +3,10 @@ plugins {
     application
     id("org.jetbrains.kotlin.jvm") version "2.1.20"
     id("org.javamodularity.moduleplugin") version "1.8.15"
-    id("org.openjfx.javafxplugin") version "0.0.13"
-    id("org.beryx.jlink") version "2.25.0"
+    id("org.openjfx.javafxplugin") version "0.1.0"
+    id("org.beryx.jlink") version "4.0.2"
     id("org.jetbrains.kotlin.plugin.serialization") version "2.4.0-RC"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("com.gradleup.shadow") version "9.4.2"
 }
 
 group = "it.liquorice"
@@ -58,7 +58,24 @@ jlink {
     imageZip.set(layout.buildDirectory.file("/distributions/app-${javafx.platform.classifier}.zip"))
     options.set(listOf("--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages"))
     launcher {
-        name = "app"
+        name = "Kollapsed"
+    }
+    jpackage {
+        installerType = when {
+            org.gradle.internal.os.OperatingSystem.current().isMacOsX -> "dmg"
+            org.gradle.internal.os.OperatingSystem.current().isWindows -> "exe"
+            else -> "app-image"
+        }
+        appVersion = "$version"
+        icon = when {
+            org.gradle.internal.os.OperatingSystem.current().isWindows -> "src/main/resources/it/liquorice/kollapsed/img/icon.ico"
+            org.gradle.internal.os.OperatingSystem.current().isMacOsX -> "src/main/resources/it/liquorice/kollapsed/img/icon.icns"
+            else -> "src/main/resources/it/liquorice/kollapsed/img/icon.png"
+        }
+        installerOptions = listOf(
+            "--mac-package-name", "Kollapsed",
+            "--mac-package-identifier", "it.liquorice.kollapsed"
+        )
     }
 }
 

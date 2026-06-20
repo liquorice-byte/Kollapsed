@@ -4,6 +4,7 @@ import atlantafx.base.controls.Card
 import atlantafx.base.theme.PrimerDark
 import atlantafx.base.theme.PrimerLight
 import com.jthemedetecor.OsThemeDetector
+import it.liquorice.kollapsed.components.KollapsedMenuBar
 import it.liquorice.kollapsed.components.MemoCard
 import it.liquorice.kollapsed.components.PomodoroCard
 import it.liquorice.kollapsed.components.ProgressCard
@@ -12,6 +13,7 @@ import javafx.application.Application
 import javafx.application.Platform
 import javafx.scene.Scene
 import javafx.scene.image.Image
+import javafx.scene.layout.BorderPane
 import javafx.scene.layout.FlowPane
 import javafx.stage.Stage
 import org.slf4j.LoggerFactory
@@ -19,6 +21,8 @@ import org.slf4j.LoggerFactory
 class KollapsedApplication : Application() {
     private lateinit var scene: Scene
     private val flowPane = FlowPane()
+    private val borderPane = BorderPane()
+    private lateinit var menuBar: KollapsedMenuBar
     private val todoCard = TodoCard()
     private val progressCard = ProgressCard()
     private val pomodoroCard = PomodoroCard()
@@ -29,6 +33,7 @@ class KollapsedApplication : Application() {
         logger.info("Starting application...")
 
         _stage = stage
+        menuBar = KollapsedMenuBar(stage)
 
         val detector = OsThemeDetector.getDetector()
         if (detector.isDark) {
@@ -59,6 +64,8 @@ class KollapsedApplication : Application() {
             }
         }
 
+        logger.info("Theme listener registered!")
+
         logger.info("Current Stylesheet: {}", getUserAgentStylesheet())
 
         // 设置间隔
@@ -66,8 +73,10 @@ class KollapsedApplication : Application() {
         flowPane.vgap = 10.0
         logger.info("hgap: ${flowPane.hgap}, vgap: ${flowPane.vgap}")
 
+
         // 创建scene, 设置stage
-        scene = Scene(flowPane, 1200.0, 1000.0)
+        scene = Scene(borderPane, 1200.0, 1000.0)
+
 
         memoCard.minWidth = scene.width
 
@@ -77,6 +86,10 @@ class KollapsedApplication : Application() {
         flowPane.children.add(pomodoroCard)
         flowPane.children.add(memoCard)
         logger.info("flowPane children: {}", flowPane.children)
+
+        // borderPane
+        borderPane.top = menuBar
+        borderPane.center = flowPane
 
         stage.title = "Kollapsed"
         stage.scene = scene
